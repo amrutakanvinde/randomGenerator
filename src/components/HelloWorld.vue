@@ -7,6 +7,12 @@
           class="row gy-2 gx-3 align-items-center"
           @submit.prevent="onSubmit"
         >
+        <p v-if="errors.length">
+      <b>Please correct the following error(s):</b>
+      <ul>
+        <li v-for="(error,index) in errors" :key="index">{{ error }}</li>
+      </ul>
+    </p>
           Generate
           <div class="col-auto">
             <input
@@ -43,7 +49,7 @@
 </template>
 
 <script>
-import listOfColumns from './listOfColumns.vue';
+import listOfColumns from "./listOfColumns.vue";
 
 export default {
   name: "HelloWorld",
@@ -58,22 +64,29 @@ export default {
       cardNumber: null,
       twoDimensionalRandomArr: [],
       rowCol: null,
-      isSubmitted: false
+      isSubmitted: false,
+      errors:[]
     };
   },
   methods: {
     onSubmit() {
+      this.errors = []
       if (this.cardNumber > 0 && this.rowCol > 0) {
-        this.isSubmitted = true;
+        if(this.cardNumber > 5 || this.cardNumber < 0){
+          this.errors.push("Number of cards have to be within the 1-5 range")
+        } else if(this.rowCol > 5 || this.cardNumber < 0){
+          this.errors.push("Number of rows/columns have to be within the 1-5 range")
+        } else {
+          this.isSubmitted = true;
+        }
       }
     },
-    
   },
-  computed:{
-    isCard(){
-      return this.cardNumber && this.rowCol
+  computed: {
+    isCard() {
+      return this.cardNumber && this.rowCol;
     },
-  }
+  },
 };
 </script>
 

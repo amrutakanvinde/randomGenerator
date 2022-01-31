@@ -1,5 +1,5 @@
 <template>
-  <div class="card" style="width: 18rem">
+  <div class="card" style="width: 18rem; text-align:center">
     <div class="card-body">
       <table class="table table-bordered border-primary">
         <tbody>
