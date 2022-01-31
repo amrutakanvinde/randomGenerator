@@ -1,7 +1,7 @@
 <template>
   <div class="card" style="width: 18rem; text-align:center">
     <div class="card-body">
-      <table class="table table-bordered border-primary">
+      <table class="table table-bordered border-dark border-1">
         <tbody>
           <tr v-for="(arr, index) in twoDimensionalRandomArr" :key="index">
             <td v-for="(a, index) in arr" :key="index">{{ a }}</td>

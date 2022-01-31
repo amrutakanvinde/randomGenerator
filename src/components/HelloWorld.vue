@@ -1,7 +1,7 @@
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid align-items-center">
     <h1>Card Generator</h1>
-    <nav class="navbar navbar-light bg-light">
+    <nav class=" navbar-light bg-light text-center">
       <div class="container-fluid">
         <form
           class="row gy-2 gx-3 align-items-center"
@@ -21,6 +21,7 @@
               id="cardNumber"
               placeholder="0"
               v-model.number="cardNumber"
+              v-on:input="cardInputChange"
             />
           </div>
           random cards, each with
@@ -31,18 +32,19 @@
               id="rowCol"
               v-model.number="rowCol"
               placeholder="0"
+              v-on:input="rowColInputChange"
             />
           </div>
           rows/columns.
 
           <div class="d-grid d-md-block">
-            <button type="submit" class="btn btn-primary" :disabled="!isCard" >Submit</button>
+            <button type="submit" class="btn btn-primary" :disabled="!isCard" >Generate</button>
           </div>
         </form>
       </div>
     </nav>
 
-    <listOfColumns v-if="isSubmitted" :cardNumber="cardNumber" :rowCol="rowCol"></listOfColumns>
+    <listOfColumns v-if="isSubmitted && cardNumber && rowCol" :cardNumber="cardNumber" :rowCol="rowCol"></listOfColumns>
 
     
   </div>
@@ -61,28 +63,44 @@ export default {
   },
   data() {
     return {
-      cardNumber: null,
-      twoDimensionalRandomArr: [],
-      rowCol: null,
+      cardNumber: 0,
+      rowCol: 0,
       isSubmitted: false,
-      errors:[]
+      errors: [],
     };
   },
   methods: {
     onSubmit() {
-      this.errors = []
+      this.errors = [];
+      this.isSubmitted = false;
       if (this.cardNumber > 0 && this.rowCol > 0) {
-        if(this.cardNumber > 5 || this.cardNumber < 0){
-          this.errors.push("Number of cards have to be within the 1-5 range")
-        } else if(this.rowCol > 5 || this.cardNumber < 0){
-          this.errors.push("Number of rows/columns have to be within the 1-5 range")
+        if (this.cardNumber > 5 || this.cardNumber < 0) {
+          this.errors.push("Number of cards have to be within the 1-5 range");
+        } else if (this.rowCol > 5 || this.rowCol < 0) {
+          this.errors.push(
+            "Number of rows/columns have to be within the 1-5 range"
+          );
         } else {
           this.isSubmitted = true;
         }
       }
     },
+    cardInputChange() {
+      this.isSubmitted = false;
+      if (this.cardNumber > 5 || this.cardNumber < 0) {
+        this.errors.push("Number of cards have to be within the 1-5 range");
+        this.cardNumber = 0;
+      }
+    },
+    rowColInputChange() {
+      this.isSubmitted = false;
+      if (this.rowCol > 5 || this.rowCol < 0) {
+        this.errors.push("Number of rows/columns have to be within the 1-5 range");
+        this.rowCol = 0;
+      }
+    },
   },
-  computed: {
+  computed: { 
     isCard() {
       return this.cardNumber && this.rowCol;
     },

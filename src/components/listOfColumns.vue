@@ -1,12 +1,18 @@
 <template>
-<div > 
-  <displayComponent v-for="card in cardNumber" :key="card"
-  :cardNumber="cardNumber" :rowCol="rowCol"></displayComponent>
-</div>
+  <div class="container">
+    <div class="row">
+      <displayComponent
+        v-for="card in cardNumber"
+        :key="card"
+        :cardNumber="cardNumber"
+        :rowCol="rowCol"
+      ></displayComponent>
+    </div>
+  </div>
 </template>
 
 <script>
-import displayComponent from './displayComponent.vue';
+import displayComponent from "./displayComponent.vue";
 
 export default {
   name: "listOfColumns",
@@ -17,15 +23,11 @@ export default {
     cardNumber: {
       type: Number,
     },
-     rowCol: {
+    rowCol: {
       type: Number,
-    }
-  },
-  methods: {},
-  computed: {
-    test() {
-      return "kjbkj";
     },
   },
+  methods: {},
+  computed: {},
 };
 </script>
