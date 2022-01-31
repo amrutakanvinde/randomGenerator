@@ -45,19 +45,19 @@
       </div>
     </nav>
 
-    <listOfColumns v-if="isSubmitted && cardNumber && rowCol" :cardNumber="cardNumber" :rowCol="rowCol"></listOfColumns>
+    <CardList v-if="isSubmitted && cardNumber && rowCol" :cardNumber="cardNumber" :rowCol="rowCol"></CardList>
 
     
   </div>
 </template>
 
 <script>
-import listOfColumns from "./listOfColumns.vue";
+import CardList from "./CardList.vue";
 
 export default {
   name: "HelloWorld",
   components: {
-    listOfColumns,
+    CardList,
   },
   props: {
     msg: String,

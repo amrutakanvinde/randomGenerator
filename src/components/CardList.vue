@@ -1,23 +1,23 @@
 <template>
   <div class="container">
     <div class="row mt-3">
-      <displayComponent
+      <CardDisplay
         v-for="card in cardNumber"
         :key="card"
         :cardNumber="cardNumber"
         :rowCol="rowCol"
-      ></displayComponent>
+      ></CardDisplay>
     </div>
   </div>
 </template>
 
 <script>
-import displayComponent from "./displayComponent.vue";
+import CardDisplay from "./CardDisplay.vue"
 
 export default {
-  name: "listOfColumns",
+  name: "CardList",
   components: {
-    displayComponent,
+    CardDisplay,
   },
   props: {
     cardNumber: {

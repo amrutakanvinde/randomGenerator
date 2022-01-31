@@ -1,5 +1,5 @@
 <template>
-  <div class="card mx-2" style="width: 18rem; text-align:center">
+  <div class="card mx-2" style="width: 18rem; text-align:center; border:none">
     <div class="card-body">
       <table class="table table-bordered">
         <tbody>
@@ -13,7 +13,7 @@
 </template>
 <script>
 export default {
-  name: "displayComponent",
+  name: "DisplayComponent",
   props: {
     cardNumber: {
       type: Number,
