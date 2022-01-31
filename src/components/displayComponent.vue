@@ -22,7 +22,7 @@ export default {
       type: Number,
     },
   },
-  
+
   data() {
     return {
       twoDimensionalRandomArr: [],
@@ -90,13 +90,13 @@ export default {
     },
   },
   computed: {},
-  created(){
+  created() {
     //   this.onLoadLogic();
-          let arr = [];
-      for (let i = 0; i < Math.pow(this.rowCol, 2); i++) {
-        arr = this.randomGenerator(arr);
-      }
-      this.twoDimensionalRandomArr = this.twoDimGenerator(arr);
+    let arr = [];
+    for (let i = 0; i < Math.pow(this.rowCol, 2); i++) {
+      arr = this.randomGenerator(arr);
+    }
+    this.twoDimensionalRandomArr = this.twoDimGenerator(arr);
   },
 };
 </script>
