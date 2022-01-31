@@ -1,8 +1,8 @@
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid divContainer">
     <h1>Card Generator</h1>
     <nav class=" navbar-light bg-light text-center">
-      <div class="container-fluid">
+      <div class="container-fluid ">
         <form class="row gy-2 gx-3 align-items-center" @submit.prevent="onSubmit">
           <p v-if="errors.length">
             <b>Please correct the following error(s):</b>
@@ -42,7 +42,6 @@
 
     <CardList v-if="isSubmitted && cardNumber && rowCol" :cardNumber="cardNumber" :rowCol="rowCol"></CardList>
 
-    
   </div>
 </template>
 
@@ -50,7 +49,7 @@
 import CardList from "./CardList.vue";
 
 export default {
-  name: "HelloWorld",
+  name: "CardGenerator",
   components: {
     CardList,
   },
@@ -70,7 +69,7 @@ export default {
       this.errors = [];
       this.isSubmitted = false;
       if (this.cardNumber > 0 && this.rowCol > 0) {
-        if (this.cardNumber > 5 || this.cardNumber < 0) {
+        if (this.cardNumber > 5) {
           this.errors.push("Number of cards have to be within the 1-5 range");
         } else if (this.rowCol > 5 || this.rowCol < 0) {
           this.errors.push(
@@ -83,12 +82,14 @@ export default {
     },
     cardInputChange() {
       this.isSubmitted = false;
+      this.errors = [];
       if (this.cardNumber > 5 || this.cardNumber < 0) {
         this.errors.push("Number of cards have to be within the 1-5 range");
         this.cardNumber = 0;
       }
     },
     rowColInputChange() {
+      this.errors = [];
       this.isSubmitted = false;
       if (this.rowCol > 5 || this.rowCol < 0) {
         this.errors.push(
@@ -108,6 +109,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
 h3 {
   margin: 40px 0 0;
 }
@@ -128,4 +130,16 @@ a {
 table {
   border-width: 50%;
 }
+.divContainer{
+  max-width: 75%;
+}
+@media (max-width: 768px) { 
+  .divContainer{
+    max-width: 95%;
+  }
+}
+/* .container {
+  background-color: #CCCCCC;
+} */
+
 </style>

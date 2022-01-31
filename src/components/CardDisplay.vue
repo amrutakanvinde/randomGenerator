@@ -13,7 +13,7 @@
 </template>
 <script>
 export default {
-  name: "DisplayComponent",
+  name: "CardDisplay",
   props: {
     cardNumber: {
       type: Number,
