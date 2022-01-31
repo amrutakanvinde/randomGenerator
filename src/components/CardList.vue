@@ -5,8 +5,8 @@
         v-for="card in cardNumber"
         :key="card"
         :cardNumber="cardNumber"
-        :rowCol="rowCol"
-      ></CardDisplay>
+        :rowCol="rowCol">
+      </CardDisplay>
     </div>
   </div>
 </template>

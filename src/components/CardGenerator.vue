@@ -1,20 +1,15 @@
 <template>
-  <div class="container-fluid w-75">
+  <div class="container-fluid">
     <h1>Card Generator</h1>
     <nav class=" navbar-light bg-light text-center">
       <div class="container-fluid">
-        <!-- <div class="d-grid d-md-block mb-2"> -->
-
-        <form
-          class="row gy-2 gx-3 align-items-center"
-          @submit.prevent="onSubmit"
-        >
-        <p v-if="errors.length">
-      <b>Please correct the following error(s):</b>
-      <ul>
-        <li v-for="(error,index) in errors" :key="index">{{ error }}</li>
-      </ul>
-    </p>
+        <form class="row gy-2 gx-3 align-items-center" @submit.prevent="onSubmit">
+          <p v-if="errors.length">
+            <b>Please correct the following error(s):</b>
+            <ul>
+              <li v-for="(error,index) in errors" :key="index">{{ error }}</li>
+            </ul>
+          </p>
           Generate
           <div class="col-auto divInput">
             <input
@@ -38,7 +33,7 @@
             />
           </div>
           rows/columns.
-            <div class="d-grid d-md-block mb-2 col align-self-end">
+          <div class="d-grid d-md-block mb-2 col align-self-end">
             <button type="submit" class="btn btn-primary" :disabled="!isCard" >Generate</button>
           </div>
         </form>
@@ -96,12 +91,14 @@ export default {
     rowColInputChange() {
       this.isSubmitted = false;
       if (this.rowCol > 5 || this.rowCol < 0) {
-        this.errors.push("Number of rows/columns have to be within the 1-5 range");
+        this.errors.push(
+          "Number of rows/columns have to be within the 1-5 range"
+        );
         this.rowCol = 0;
       }
     },
   },
-  computed: { 
+  computed: {
     isCard() {
       return this.cardNumber && this.rowCol;
     },
@@ -126,7 +123,7 @@ a {
   color: #42b983;
 }
 .divInput {
-    width:100px
+  width: 100px;
 }
 table {
   border-width: 50%;

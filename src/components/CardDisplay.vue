@@ -30,10 +30,12 @@ export default {
   },
   methods: {
     onLoadLogic() {
+      //creating a new array with random alphabets
       let arr = [];
       for (let i = 0; i < Math.pow(this.rowCol, 2); i++) {
         arr = this.randomGenerator(arr);
       }
+      //Making the array a two dimensional one to make displaying easier
       this.twoDimensionalRandomArr = this.twoDimGenerator(arr);
     },
     twoDimGenerator(arr) {
@@ -52,32 +54,7 @@ export default {
       return returnArr;
     },
     randomGenerator(arr) {
-      let alphabetArr = [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E",
-        "F",
-        "G",
-        "H",
-        "I",
-        "J",
-        "K",
-        "L",
-        "M",
-        "N",
-        "O",
-        "P",
-        "R",
-        "S",
-        "T",
-        "U",
-        "V",
-        "W",
-        "X",
-        "Y",
-        "Z",
+      let alphabetArr = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","R","S","T","U","V","W","X","Y","Z",
       ];
       let randomAlphabet =
         alphabetArr[Math.floor(Math.random() * alphabetArr.length)];
@@ -91,12 +68,7 @@ export default {
   },
   computed: {},
   created() {
-    //   this.onLoadLogic();
-    let arr = [];
-    for (let i = 0; i < Math.pow(this.rowCol, 2); i++) {
-      arr = this.randomGenerator(arr);
-    }
-    this.twoDimensionalRandomArr = this.twoDimGenerator(arr);
-  },
+      this.onLoadLogic();
+  }
 };
 </script>
