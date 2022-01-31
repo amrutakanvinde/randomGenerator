@@ -1,8 +1,10 @@
 <template>
-  <div class="container-fluid align-items-center">
+  <div class="container-fluid w-75">
     <h1>Card Generator</h1>
     <nav class=" navbar-light bg-light text-center">
       <div class="container-fluid">
+        <!-- <div class="d-grid d-md-block mb-2"> -->
+
         <form
           class="row gy-2 gx-3 align-items-center"
           @submit.prevent="onSubmit"
@@ -14,7 +16,7 @@
       </ul>
     </p>
           Generate
-          <div class="col-auto">
+          <div class="col-auto divInput">
             <input
               type="number"
               class="form-control"
@@ -25,7 +27,7 @@
             />
           </div>
           random cards, each with
-          <div class="col-auto">
+          <div class="col-auto divInput">
             <input
               type="number"
               class="form-control"
@@ -36,8 +38,7 @@
             />
           </div>
           rows/columns.
-
-          <div class="d-grid d-md-block">
+            <div class="d-grid d-md-block mb-2 col align-self-end">
             <button type="submit" class="btn btn-primary" :disabled="!isCard" >Generate</button>
           </div>
         </form>
@@ -123,5 +124,11 @@ li {
 }
 a {
   color: #42b983;
+}
+.divInput {
+    width:100px
+}
+table {
+  border-width: 50%;
 }
 </style>

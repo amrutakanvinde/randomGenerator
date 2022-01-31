@@ -1,10 +1,10 @@
 <template>
-  <div class="card" style="width: 18rem; text-align:center">
+  <div class="card mx-2" style="width: 18rem; text-align:center">
     <div class="card-body">
-      <table class="table table-bordered border-dark border-1">
+      <table class="table table-bordered">
         <tbody>
           <tr v-for="(arr, index) in twoDimensionalRandomArr" :key="index">
-            <td v-for="(a, index) in arr" :key="index">{{ a }}</td>
+            <td v-for="(a, index) in arr" :key="index" class="border-dark border-5">{{ a }}</td>
           </tr>
         </tbody>
       </table>
