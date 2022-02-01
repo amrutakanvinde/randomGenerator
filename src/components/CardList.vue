@@ -1,12 +1,14 @@
 <template>
-  <div class="container">
-    <div class="row mt-3">
-      <CardDisplay
-        v-for="card in cardNumber"
-        :key="card"
-        :cardNumber="cardNumber"
-        :rowCol="rowCol">
-      </CardDisplay>
+  <div class="container cardContainer">
+    <div class="mt-3 tableRow ">
+      <!-- <div class="container"> -->
+        <CardDisplay
+          v-for="card in cardNumber"
+          :key="card"
+          :cardNumber="cardNumber"
+          :rowCol="rowCol">
+        </CardDisplay> 
+      <!-- </div> -->
     </div>
   </div>
 </template>

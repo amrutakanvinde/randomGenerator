@@ -1,9 +1,9 @@
 <template>
-  <div class="container-fluid divContainer">
-    <h1>Card Generator</h1>
-    <nav class=" navbar-light bg-light text-center">
-      <div class="container-fluid ">
-        <form class="row gy-2 gx-3 align-items-center" @submit.prevent="onSubmit">
+  <div class="container divContainer">
+    <h1 class="fw-bold text-start text-dark">Card Generator</h1>
+    <nav class=" navbar-light bg-white shadow p-3 mb-5 bg-body rounded">
+      <div class="container-fluid">
+        <form class="row gy-2 gx-3 align-items-center" style="font-family:Hind; font-size:14px" @submit.prevent="onSubmit">
           <p v-if="errors.length">
             <b>Please correct the following error(s):</b>
             <ul>
@@ -34,7 +34,7 @@
           </div>
           rows/columns.
           <div class="d-grid d-md-block mb-2 col align-self-end">
-            <button type="submit" class="btn btn-primary" :disabled="!isCard" >Generate</button>
+            <button type="submit" class="btn btn-primary fw-bold" :disabled="!isCard" >Generate</button>
           </div>
         </form>
       </div>
@@ -109,7 +109,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 h3 {
   margin: 40px 0 0;
 }
@@ -127,19 +126,41 @@ a {
 .divInput {
   width: 100px;
 }
-table {
-  border-width: 50%;
-}
+/* table {
+  border-width: 60%;
+} */
 .divContainer{
   max-width: 75%;
+  background-color: #CCCCCC;
 }
 @media (max-width: 768px) { 
   .divContainer{
     max-width: 95%;
+    padding:0;
+  }
+  .tableRow{
+    justify-content: center;
+  }
+  .cardContainer{
+    margin: 0;
+    padding: 0;
+  }
+  .card-body{
+    padding:0;
   }
 }
-/* .container {
-  background-color: #CCCCCC;
+
+h1{
+  font-family: 'Roboto Slab', serif;
+  font-size: 50px;
+  /* font-weight:700; */
+
+}
+/* .displayTable{
+  border-width: 9px;
 } */
+.btn{
+  font-size:16px
+}
 
 </style>
