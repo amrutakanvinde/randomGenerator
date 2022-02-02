@@ -1,7 +1,6 @@
 <template>
   <div class="card mx-2 divCard" >
     <div class="card-body">
-      <!-- <div class="container-fluid"> -->
         <table class="table table-bordered displayTable rounded" style="">
           <tbody>
             <tr v-for="(arr, index) in twoDimensionalRandomArr" :key="index">
@@ -9,7 +8,6 @@
             </tr>
           </tbody>
         </table>
-      <!-- </div> -->
     </div>
   </div>
 </template>
@@ -74,3 +72,14 @@ export default {
   }
 };
 </script>
+<style scoped>
+  .divCard{
+    background-color: #CCCCCC;
+    border:none;
+    /* width: 18rem;  */
+    text-align:center;
+  }
+  .card-body{
+    padding:0;
+  }
+</style>

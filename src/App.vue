@@ -31,18 +31,5 @@ html, body{
   padding: 0;
   background-color: #CCCCCC;
 }
-.divCard{
-  background-color: #CCCCCC;
-  border:none;
-  /* width: 18rem;  */
-  text-align:center;
-}
-/* .tableRow {
-  justify-content: center;
-} */
 
-/* Might need to change this for normal view */
-  .card-body{
-    padding:0;
-  }
 </style>

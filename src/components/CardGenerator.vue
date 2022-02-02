@@ -1,39 +1,42 @@
 <template>
-  <div class="container divContainer">
-    <h1 class="fw-bold text-start text-dark">Card Generator</h1>
-    <nav class=" navbar-light bg-white shadow p-3 mb-5 bg-body rounded">
-      <div class="container-fluid">
-        <form class="row gy-2 gx-3 align-items-center" style="font-family:Hind; font-size:14px" @submit.prevent="onSubmit">
+  <div class="container mainContainer">
+    <h1 class="fw-bold text-start text-dark mx-3">Card Generator</h1>
+    <nav class=" navbar-light bg-white shadow mb-5 bg-body rounded mx-3">
+      <div class="container-fluid col-lg-auto">
+        <form class="row gx-3 align-items-center" style="font-family:Hind; font-size:14px" @submit.prevent="onSubmit">
           <p v-if="errors.length">
             <b>Please correct the following error(s):</b>
             <ul>
               <li v-for="(error,index) in errors" :key="index">{{ error }}</li>
             </ul>
           </p>
-          Generate
-          <div class="col-auto divInput">
+          <div class="col-auto divInputText gy-1">Generate</div>
+          <div class="col-auto divInput gy-1" style="padding-left: 20px;">
             <input
               type="number"
               class="form-control"
               id="cardNumber"
-              placeholder="0"
+              placeholder=""
               v-model.number="cardNumber"
               v-on:input="cardInputChange"
             />
           </div>
-          random cards, each with
-          <div class="col-auto divInput">
-            <input
-              type="number"
-              class="form-control"
-              id="rowCol"
-              v-model.number="rowCol"
-              placeholder="0"
-              v-on:input="rowColInputChange"
-            />
+          <div class="col-auto divInputText gy-1">random cards, </div>
+          <div class = "inputCollection inputCollection row col-lg-auto align-items-center col-md-12 me-auto gy-lg-0 gy-sm-2">
+            <div class="col-auto divInputText gy-1">each with</div>
+            <div class="col-auto divInput gy-1">
+              <input
+                type="number"
+                class="form-control"
+                id="rowCol"
+                v-model.number="rowCol"
+                placeholder=""
+                v-on:input="rowColInputChange"
+              />
+            </div>
+            <div class="col-auto divInputText gy-1">rows/columns.</div>
           </div>
-          rows/columns.
-          <div class="d-grid d-md-block mb-2 col align-self-end">
+          <div class="btn-generate d-grid mb-2 col-lg-auto col-md-12 align-self-end gy-2">
             <button type="submit" class="btn btn-primary fw-bold" :disabled="!isCard" >Generate</button>
           </div>
         </form>
@@ -123,42 +126,39 @@ li {
 a {
   color: #42b983;
 }
-.divInput {
-  width: 100px;
+.navbar-light{
+  padding: 12px 20px;
 }
-/* table {
-  border-width: 60%;
-} */
+.divInput, 
+.divInputText, 
+.row.inputCollection {
+  padding-right: 0;
+}
+.divInput input{
+  width: 56px;
+  padding: 7px 13px 7px 13px;
+ }
 .divContainer{
   max-width: 75%;
   background-color: #CCCCCC;
 }
+
 @media (max-width: 768px) { 
   .divContainer{
     max-width: 95%;
     padding:0;
   }
-  .tableRow{
-    justify-content: center;
-  }
-  .cardContainer{
+  .mainContainer{
     margin: 0;
     padding: 0;
-  }
-  .card-body{
-    padding:0;
   }
 }
 
 h1{
   font-family: 'Roboto Slab', serif;
   font-size: 50px;
-  /* font-weight:700; */
 
 }
-/* .displayTable{
-  border-width: 9px;
-} */
 .btn{
   font-size:16px
 }

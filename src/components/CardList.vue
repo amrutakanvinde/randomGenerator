@@ -1,7 +1,7 @@
 <template>
   <div class="container cardContainer">
     <div class="mt-3 tableRow ">
-      <!-- <div class="container"> -->
+      <!-- <div class="col"> -->
         <CardDisplay
           v-for="card in cardNumber"
           :key="card"
@@ -33,3 +33,20 @@ export default {
   computed: {},
 };
 </script>
+
+<style scoped>
+.tableRow{
+  max-width:390px;
+  margin: 0 auto;
+}
+.cardContainer{
+  margin:0;
+  padding:0
+}
+@media (max-width: 768px) { 
+   .tableRow{
+   margin: 0;
+   padding: 0;
+  }
+}
+</style>
